@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    
+    <!-- MDB -->
+    <link rel="stylesheet" href="/css/mdb.min.css" />
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <script src="./route.js" defer></script>
+    <!-- <script src="/js/scripts.js" defer></script> -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Laundrytogo: Pickup Route</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="mapsignout">
+        <button type="button" onclick="signoutfun()" id="signOut" class="btn btn-primary btn-block signoutmap">Sign Out</button>
+    </div>
+    <div id='map'></div>    
+</body>
+</html>
