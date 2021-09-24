@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0 0)">
+    <g id="Layer_1" data-name="Layer 1" transform="translate(0 0)">
+      <circle id="Ellipse_40" data-name="Ellipse 40" cx="30" cy="30" r="30" transform="translate(0 0)" fill="#0f056b"/>
+      <path id="Path_968" data-name="Path 968" d="M70.81,54.48A18.506,18.506,0,0,0,52.764,77.028,18.5,18.5,0,0,1,82.038,66.392a11.569,11.569,0,0,1,4.08-3.8A18.475,18.475,0,0,0,70.81,54.48Z" transform="translate(-40.81 -42.498)" fill="#f2f1ff"/>
+      <path id="Path_969" data-name="Path 969" d="M72.4,120.316a18.475,18.475,0,0,0,15.616-8.578,11.5,11.5,0,0,1-4.4-16.482A18.5,18.5,0,0,0,54.35,105.877,18.5,18.5,0,0,0,72.4,120.316Z" transform="translate(-42.396 -71.346)" fill="#9eaeef"/>
+    </g>
+  </g>
+</svg>

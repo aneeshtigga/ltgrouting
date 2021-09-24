@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/favicon.svg" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <script src="./js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <div class="d-flex justify-content-center" style="margin-top: 100px;">
+      <img style="height: 50px; padding-right: 5px;" src="./img/logo-light-bg.svg" alt="nav-logo">
+      <div class="d-flex align-items-center" style="height: 50px; font-weight: 600; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">Routing</div>
+  </div>
+  <div  style="margin: auto; max-width: 400px; padding: 50px;">
+      <form id="sign-in-form" >
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="signinemail" class="form-control" />
+            <label class="form-label" for="signinemail">Email address</label>
+          </div>
+        
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="signinpassword" class="form-control" />
+            <label class="form-label" for="signinpassword">Password</label>
+          </div>
+        
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="form1Example3"
+                  checked
+                />
+                <label class="form-check-label" for="form1Example3"> Remember me </label>
+              </div>
+            </div>
+        
+            <div class="col">
+              <!-- Simple link -->
+              <a href="#!">Forgot password?</a>
+            </div>
+          </div>
+        
+          <!-- Submit button -->
+          <button type="button" onclick="signinfun()" id="signIn" class="btn btn-primary btn-block">Sign in</button>
+          <div class="row mb-4">
+            <div style="margin-top: 1.5rem;" class="col d-flex justify-content-center">
+              Don't have an account?<a style="margin-left: 5px;" href="#!" id="linkSignUp">Sign up</a>
+            </div>
+          </div>          
+        </form>
+        <form id="sign-up-form" class="form--hidden">
+          <!-- Name -->
+          <div class="form-outline mb-4">
+            <input type="name" id="fullname" class="form-control" />
+            <label class="form-label" for="fullname">Full Name</label>
+          </div>
+
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="emailid" class="form-control" />
+            <label class="form-label" for="emailid">Email address</label>
+          </div>
+        
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="passwordnew" class="form-control" />
+            <label class="form-label" for="passwordnew">Password</label>
+          </div>
+
+          <!-- Confirm Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="passowrdconf" class="form-control" />
+            <label class="form-label" for="passowrdconf">Retype Password</label>
+          </div>
+        
+          <!-- Submit button -->
+          <button type="button" onclick="signupfun()" id="signUp" class="btn btn-primary btn-block">Sign up</button>
+          <div class="row mb-4">
+            <div style="margin-top: 1.5rem;" class="col d-flex justify-content-center">
+              Already have an account?<a style="margin-left: 5px;" href="#!" id="linkLogin">Sign in</a>
+            </div>
+          </div>          
+        </form>
+        <button type="button" onclick="signoutfun()" id="signOut" class="btn btn-primary btn-block">Sign Out</button>
+  </div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+  </body>
+</html>
