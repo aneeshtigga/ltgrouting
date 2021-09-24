@@ -32,6 +32,10 @@
     <div class="mapsignout">
         <button type="button" onclick="signoutfun()" id="signOut" class="btn btn-primary btn-block signoutmap">Sign Out</button>
     </div>
+    <div class="datepicker">
+        <label id="bookingdatelabel" for="bookingdate">Date</label>
+        <input type="date" id="bookingdate" name="somedate" min="2021-09-21" onchange="CallWebAPI()" />
+    </div>
     <div id='map'></div>    
 </body>
 </html>

@@ -105,3 +105,59 @@ auth.onAuthStateChanged(function(user) {
         window.location = '/index.html';
     }
 });
+
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("somedate")[0].setAttribute('min', today);
+
+
+// Get booking locations
+
+function CallWebAPI() {
+    var newdate = document.getElementById('bookingdate').value;
+
+    let username = '20768165';
+    let password = '579cb7195933937096f4999d3567ca5b';
+    let link = 'https://acuityscheduling.com/api/v1/appointments?calendarID=4507360&minDate=' + newdate + "&maxDate=" + newdate;
+
+    fetch(link,
+        {
+            method: 'GET',
+            headers: {'Authorization': 'Basic ' + btoa(username + ':' + password)}
+        })
+            .then(response=>{
+                return response.json();
+            }).then(json=>{
+                console.log(json)
+            });
+};
+
+// var userName = "20768165";
+// var passWord = "579cb7195933937096f4999d3567ca5b";
+
+// function authenticateUser(user, password)
+// {
+//     var token = user + ":" + password;
+
+//     var hash = btoa(token); 
+
+//     return "Basic " + hash;
+// };
+
+// function CallWebAPI() {
+
+//     // New XMLHTTPRequest
+//     var request = new XMLHttpRequest();
+//     link = "https://acuityscheduling.com/api/v1/appointments?calendarID=4507360&minDate=" + newdate + "&maxDate=" + newdate;
+//     request.open("GET", link, false);
+//     request.setRequestHeader("Authorization", authenticateUser(userName, passWord));
+//     request.setRequestHeader("mode", "cors")
+//     request.send();
+//     // view request status
+//     alert(request.status);
+//     response.innerHTML = request.responseText;
+// };
+
+function checkdate() {
+    var datedate = document.getElementById('bookingdate').value;
+    console.log(datedate);
+};
