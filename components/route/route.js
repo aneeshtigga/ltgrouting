@@ -132,7 +132,28 @@ function CallWebAPI() {
         for (let index = 0; index < json.length; ++index) {
             locations.push(json[index]['location']);
         }
-        console.log(locations);
+        geoCode(locations);
     };
+
+    function geoCode(locations) {
+        let geocodes = {};
+        let gcodeend = 'https://struckhigh.co.in/acuity/geocode.php/?address=';
+        for (let index = 0; index < locations.length; ++index) {
+            temploc = locations[index];
+            encodeaddr = encodeURI(temploc.replace(/,/g, '').replace(/\./g, ""));
+            tempurl = gcodeend + encodeaddr;
+
+            fetch(tempurl,
+                {
+                    method: 'GET'
+                })
+                    .then(response=>{
+                        return response.json();
+                    }).then(json=>{
+                        geocodes[json['query']] = json['features'][0]['geometry']['coordinates'];                    
+                    });
+        }
+        console.log(geocodes)
+    }
 
 };
