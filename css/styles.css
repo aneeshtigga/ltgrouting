@@ -28,6 +28,45 @@
     left: 10px;
 }
 
+.timeholder {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    z-index: 1000;
+    left: 110px;
+    border-radius: .25rem;
+}
+
+#timeearly {
+    border-radius: .25rem 0rem 0rem .25rem;
+}
+
+#timelate {
+    border-radius: 0rem .25rem .25rem 0rem;
+}
+
+.tsel {
+    background: #1da1f2 !important;
+    color: #fff !important;
+}
+
+.timepicker {
+    background: #fff;
+    color: #000;
+    font-weight: 900;
+    font-size: 0.8rem;
+    height: 29px;
+    min-width: 75px;
+    padding: 0px 10px 0px 10px;
+    border-radius: 0;
+}
+
+.timepicker:hover {
+    background: rgb(233, 233, 233);
+    color: #000;
+    font-weight: 900;
+}
+
 .datepicker {
     position: absolute;
     top: 50px;

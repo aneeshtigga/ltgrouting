@@ -1,3 +1,27 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const early = document.querySelector("#timeearly");
+    const late = document.querySelector("#timelate");
+    var timeselect = document.getElementById("timeselect");
+    timeselect.value = "8:00am"
+
+    document.querySelector("#timeearly").addEventListener("click", e => {
+        e.preventDefault();
+        early.classList.add("tsel");
+        late.classList.remove("tsel");
+        timeselect.value = timeearly.value;
+        return timeselect;
+    });
+
+    document.querySelector("#timelate").addEventListener("click", e => {
+        e.preventDefault();
+        early.classList.remove("tsel");
+        late.classList.add("tsel");
+        timeselect.value = timelate.value;
+        return timeselect;
+    });
+
+});
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5lZXNodGlnZ2EiLCJhIjoiY2plbXJ6YmpxMWJpYzJxbzhvaG14ZXQ1ayJ9.BWIXf2Xyj_7tzayM6zl1Aw';
 
 current = {}
@@ -114,6 +138,7 @@ document.getElementsByName("somedate")[0].setAttribute('min', today);
 
 function CallWebAPI() {
     var newdate = document.getElementById('bookingdate').value;
+    var newtime = document.getElementById('timeselect').value;
 
     let link = 'https://struckhigh.co.in/acuity/route.php/?newdate=' + newdate;
 
@@ -130,30 +155,44 @@ function CallWebAPI() {
     function filterLoc(json) {
         let locations = [];
         for (let index = 0; index < json.length; ++index) {
-            locations.push(json[index]['location']);
+            if(json[index]['time'] == newtime) {
+                locations.push(json[index]['location']);
+            }
         }
         geoCode(locations);
     };
 
     function geoCode(locations) {
-        let geocodes = {};
         let gcodeend = 'https://struckhigh.co.in/acuity/geocode.php/?address=';
         for (let index = 0; index < locations.length; ++index) {
             temploc = locations[index];
             encodeaddr = encodeURI(temploc.replace(/,/g, '').replace(/\./g, ""));
             tempurl = gcodeend + encodeaddr;
+            
 
-            fetch(tempurl,
-                {
-                    method: 'GET'
-                })
-                    .then(response=>{
-                        return response.json();
-                    }).then(json=>{
-                        geocodes[json['query']] = json['features'][0]['geometry']['coordinates'];                    
-                    });
+            async function getGeo(tempurl) {
+                const response = await fetch(tempurl);
+                const json = await response.json();
+                
+                return json;
+            }
+
+            const filtergeo = (async (tempurl, temploc) => {
+                let geocodes = [];
+                let tempgeocodes = [];
+                try {
+                    geodata = await getGeo(tempurl);
+                    tempgeocodes.push(temploc,geodata["features"][0]["geometry"]["coordinates"]);
+                    geocodes.push(tempgeocodes)
+                } catch (e) {
+                    console.log("Error!");
+                    console.log(e);
+                }
+                console.log(geocodes[0])
+            })
+
+            filtergeo(tempurl, temploc)
         }
-        console.log(geocodes)
     }
 
 };

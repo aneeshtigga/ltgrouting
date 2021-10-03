@@ -32,6 +32,10 @@
     <div class="mapsignout">
         <button type="button" onclick="signoutfun()" id="signOut" class="btn btn-primary btn-block signoutmap">Sign Out</button>
     </div>
+    <div id="timeselect" class="timeholder">
+        <button id="timeearly" type="button" class="btn btn-primary btn-block tsel timepicker" value="8:00am">8:00AM</button>
+        <button id="timelate" type="button" style="margin-top: 0" class="btn btn-primary btn-block timepicker" value="11:30am">11:30AM</button>
+    </div>
     <div class="datepicker">
         <label id="bookingdatelabel" for="bookingdate">Date</label>
         <input type="date" id="bookingdate" name="somedate" min="2021-09-21" onchange="CallWebAPI()" placeholder="dd/mm/yyyy"/>
